@@ -87,7 +87,7 @@ import vue from "/@fs/.../node_modules/.vite/vue.js?v=<hash>";
     const isResolve = resolve.test(id);
     const isExclude = exclude.test(id);
     if (!isResolve || isExclude) return;
-    // 将打包文件的源码替换为从源码原样导出
+    // 将打包后的入口文件的代码替换为从源码原样导出
     const code = `export * from '/@fs${id.replace(resolve, replace)}'`;
     return code;
   },
