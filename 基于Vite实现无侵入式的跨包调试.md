@@ -149,3 +149,25 @@ export default defineConfig({
 ```
 
 详见官方文档：https://cn.vitejs.dev/config/index.html#server-fs-allow
+
+## 后记（与 alias 的对比）
+
+针对简单的外部仓库别名替换，使用 alias 也可以满足需求:
+
+```ts
+{
+  find: /(a-example-lib)/, // 注意这里匹配的是经过 vite 转换前的包名，可使用正则
+  replacement: '/root/xxx/$1/src/index.ts',
+}
+```
+
++ https://vitejs.dev/config/#resolve-alias
++ https://github.com/rollup/plugins/tree/master/packages/alias#entries
+
+本文方案与 alias 的区别在于，alias 匹配的是经过 vite 转换前的包名然后进行替换，而本文方案替换的是匹配的入口文件的内容。
+
+在单体式仓库的情况下，使用 alias 会面临许多复杂的情况：
++ 包名不一定方便匹配（包名和文件名不一定一致、存在不同的命名空间、同一命名空间下可以还有 repo 外的项目）
++ 即使包名和文件名一致，提前扫描文件目录生成的 alias 也不方面动态创建子包（即需要重启服务）
+
+本文方案的优势在于匹配的是入口文件的 id，该 id 无论是通过包名、相对路径，亦或者在 vite 转换后的路径为非绝对路径的 `/packages/shared/dist/index.es.js` 等各种情况下，其在导入后 transform 阶段的 id 是一致且易于匹配的（`/@fs/xxx/packages/yyy/dist/index.es.js`）。同时其与该包名无关，且可以通过相对路径得到其源码位置（一般为 `/@fs/xxx/packages/yyy/src/index.ts`）
