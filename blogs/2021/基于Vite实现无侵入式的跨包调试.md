@@ -157,7 +157,7 @@ export default defineConfig({
 ```ts
 {
   find: /(a-example-lib)/, // 注意这里匹配的是经过 vite 转换前的包名，可使用正则
-  replacement: '/root/xxx/$1/src/index.ts',
+  replacement: '<pathoflib>/$1/lib/index.ts',
 }
 ```
 
