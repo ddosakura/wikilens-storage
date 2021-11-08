@@ -23,3 +23,6 @@ https://github.com/blueedgetechno
 2021.11.5
 https://github.com/ibraheemdev/modern-unix
 https://github.com/chubin/awesome-console-services
+
+https://wasi.dev/
+rust
