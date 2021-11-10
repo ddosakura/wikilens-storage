@@ -3,6 +3,17 @@
 + [ ] 整理 [[Computer Science]] 目录
 + [ ] 从 [[Logseq]] 迁移 [[Weekly Read]]
 
+## 专项研究
+
+### WebXR
+
++ https://immersive-web.github.io/webxr/
+    + https://aframe.io/
+    + https://www.babylonjs.com/
+    + https://threejs.org/
+    + https://github.com/immersive-web/webxr-polyfill
++ https://medium.com/@lazerwalker/how-to-easily-test-your-webvr-and-webxr-projects-locally-on-your-oculus-quest-eec26a03b7ee
+
 ## Useful
 
 + 动效：https://motion.dev/
