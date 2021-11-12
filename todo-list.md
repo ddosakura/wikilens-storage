@@ -18,6 +18,19 @@
 
 + 动效：https://motion.dev/
 + 电子签名：https://github.com/linjc/smooth-signature
++ 样式参考：
+    + https://github.com/PiyushSuthar/Windows-11-Web
++ SQLite：https://sqlime.org/
+    + https://github.com/sql-js/sql.js/
++ DNS：
+    + https://developers.cloudflare.com/1.1.1.1/other-ways-to-use-1.1.1.1/dns-in-google-sheets
+
+## 可视化框架研究&编辑器设计
+
++ https://x6.antv.vision/zh
++ https://craft.js.org/
++ https://microsoft.github.io/monaco-editor/index.html
++ https://nodes.io/
 
 ## WIP
 
@@ -37,3 +50,8 @@ https://github.com/chubin/awesome-console-services
 
 https://wasi.dev/
 rust
+
+2021.11.12
+https://earthly.dev/blog/awk-examples/
+https://github.com/rossant/awesome-math
+https://github.com/sindresorhus/yoctocolors
