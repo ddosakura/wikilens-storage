@@ -31,6 +31,7 @@
 + https://craft.js.org/
 + https://microsoft.github.io/monaco-editor/index.html
 + https://nodes.io/
++ https://xtermjs.org/
 
 ## WIP
 
