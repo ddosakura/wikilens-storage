@@ -228,6 +228,30 @@ export default /* @__PURE__ */ _export_sfc(_sfc_main$2, [["render", _sfc_render$
 code.replace('_export_sfc(', `((...args) => (${injects.join(',')},_export_sfc(...args)))(`)
 ```
 
+### 样式的禁用
+
+有的时候，使用方并不想引入样式。可以通过定义一个 window 下的变量来实现这一能力。
+
+```ts
+const inject = `typeof window.DISABLE_STYLE_INJECT === 'undefined' && (${injects.join(',')})`
+```
+
+使用 window 下的变量来进行判断有两点好处。在通过 cdn 使用时（by umd），只需要在使用前设置该变量即可生效：
+
+```ts
+window.DISABLE_STYLE_INJECT = true;
+```
+
+在 nodejs 中使用时（by esm），我们可以替换该值来使该能力生效（类似通过 `process.env.NODE_ENV` 来区分开发或生产环境）：
+
+```ts
+replace({
+  'window.DISABLE_STYLE_INJECT': 'true',
+}),
+```
+
+同时由于 `typeof true === 'undefined'` 恒为 `false`，此行代码及未用到的样式可在代码优化过程中被直接删除。
+
 ## 总结
 
 相比于已经存在了数年，插件无比丰富的 webpack 来说，vite 并非完美无缺。但其优秀的性能，简约的实现与易于调试的插件，能让人更有欲望去探究并改造代码的底层逻辑。而踩坑与填坑的过程，也是一个深入理解代码的过程。
